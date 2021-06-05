@@ -63,7 +63,7 @@ app.post('/register', async(req, res)=>{
             name: req.body.name
         }
         const query = querystring.stringify(t);
-        res.redirect('/?' + query);
+        res.redirect('/home?' + query);
         console.log('success')
 
 
