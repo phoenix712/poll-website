@@ -25,11 +25,13 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.static('views'))
 
 app.get('/', (req, res) =>{
+    res.render('login.ejs')
+})
+
+app.get('/home',(req, res)=>{
     person = req.query
     res.render('index.ejs', {person})
 })
-
-
 
   
 
@@ -85,7 +87,7 @@ app.post('/login', async(req, res)=>{
                     name: user.name
                 }
                 const query = querystring.stringify(t);
-                res.redirect('/?' + query);
+                res.redirect('/home?' + query);
                 console.log('success')
               
             }else{
